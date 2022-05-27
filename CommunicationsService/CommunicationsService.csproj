@@ -17,6 +17,9 @@
       <Content Update="Templates\MyTemplate.cshtml">
         <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       </Content>
+      <Content Update="AccountCreationConfirmation\AccountCreationConfirmationEmailTemplate.cshtml">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>

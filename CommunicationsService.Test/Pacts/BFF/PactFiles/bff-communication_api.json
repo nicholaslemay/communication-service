@@ -1,0 +1,35 @@
+{
+  "consumer": {
+    "name": "BFF"
+  },
+  "provider": {
+    "name": "Communication API"
+  },
+  "interactions": [
+    {
+      "description": "A valid POST request",
+      "providerState": "Creating an account creation confirmation ",
+      "request": {
+        "method": "post",
+        "path": "/accountCreationConfirmation",
+        "headers": {
+          "Content-Type": "application/json; charset=utf-8"
+        },
+        "body": {
+          "email": "bob@hotmail.com",
+          "name": "robert"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecification": {
+      "version": "1.0.0"
+    }
+  }
+}

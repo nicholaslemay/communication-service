@@ -13,6 +13,11 @@
         <PackageReference Include="Microsoft.AspNetCore.Mvc.Testing" Version="6.0.4" />
         <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.11.0" />
         <PackageReference Include="netDumbster" Version="3.0.0" />
+        <PackageReference Include="PactNet" Version="3.0.2" />
+        <PackageReference Include="PactNet.Linux.x64" Version="3.0.2" />
+        <PackageReference Include="PactNet.Linux.x86" Version="3.0.2" />
+        <PackageReference Include="PactNet.OSX" Version="3.0.2" />
+        <PackageReference Include="PactNet.Windows" Version="3.0.2" />
         <PackageReference Include="RazorLight" Version="2.0.0" />
         <PackageReference Include="xunit" Version="2.4.1" />
         <PackageReference Include="xunit.runner.visualstudio" Version="2.4.3">
@@ -27,6 +32,13 @@
 
     <ItemGroup>
       <ProjectReference Include="..\CommunicationsService\CommunicationsService.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Pacts\BFF\PactFiles\bff-communication_api.json" />
+      <Content Include="Pacts\BFF\PactFiles\bff-communication_api.json">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </Content>
     </ItemGroup>
 
 </Project>
