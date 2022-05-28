@@ -1,3 +1,4 @@
+using System.IO;
 using System.Threading.Tasks;
 using AngleSharp.Html.Dom;
 using AngleSharp.Html.Parser;
@@ -8,7 +9,7 @@ namespace CommunicationsService.Test.Support;
 public abstract class TemplateTest
 {
     private static readonly RazorLightEngine TemplateEngine = new RazorLightEngineBuilder()
-        .UseFileSystemProject("/Users/nick/RiderProjects/BDC/CommunicationsService/CommunicationsService/")
+        .UseFileSystemProject($"{Directory.GetCurrentDirectory()}/../../../../CommunicationsService/")
         .UseMemoryCachingProvider()
         .Build();
 
