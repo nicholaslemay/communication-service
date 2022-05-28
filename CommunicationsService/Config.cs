@@ -1,7 +1,7 @@
 namespace CommunicationsService;
 
-public class Config 
+public static class Config 
 {
-    public static string EmailsUsername = "your@gmail.com";
-    public static string Password = "";
+    public const string EmailsUsername = "your@gmail.com";
+    public const string Password = "";
 }

@@ -8,21 +8,12 @@ public static class AccountCreationConfirmationEndPoint
     {
         app.MapPost("/accountCreationConfirmation", async (IFluentEmail fluentEmail, AccountCreationConfirmationRequest request) =>
         {
-            try
-            {
-                await fluentEmail
-                    .To(request.Email)
-                    .Subject("Subscription Confirmation")
-                    .UsingTemplateFromFile($"{Directory.GetCurrentDirectory()}/AccountCreationConfirmation/AccountCreationConfirmationEmailTemplate.cshtml", 
-                        new AccountCreationConfirmationEmailViewModel { Name = request.Name })
-                    .SendAsync();
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
+            await fluentEmail
+                .To(request.Email)
+                .Subject("Subscription Confirmation")
+                .UsingTemplateFromFile($"{Directory.GetCurrentDirectory()}/AccountCreationConfirmation/AccountCreationConfirmationEmailTemplate.cshtml", 
+                    new AccountCreationConfirmationEmailViewModel(request.Name))
+                .SendAsync();
         }).Produces(200);
         
         return app;

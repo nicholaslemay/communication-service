@@ -1,7 +1,3 @@
 namespace CommunicationsService.AccountCreationConfirmation;
 
-public record AccountCreationConfirmationRequest
-{
-    public string Email { get; init; }
-    public string Name { get; init; }
-}
+public record AccountCreationConfirmationRequest(string Email, string Name);

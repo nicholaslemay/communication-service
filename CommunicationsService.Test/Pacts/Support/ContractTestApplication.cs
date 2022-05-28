@@ -90,7 +90,7 @@ public class ContractTestApplication : WebApplicationFactory<Program>
             services.TryAdd(ServiceDescriptor.Singleton<ISender>(_ => new SmtpSender(new SmtpClient
             {
                 Host = "127.0.0.1",
-                Port = 9999,
+                Port = 9999
             })));
         });
         

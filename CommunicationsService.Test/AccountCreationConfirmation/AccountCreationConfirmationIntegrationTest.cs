@@ -1,4 +1,3 @@
-using System.Net;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
 using CommunicationsService.AccountCreationConfirmation;
@@ -18,7 +17,7 @@ public class AccountCreationConfirmationIntegrationTest
         var smtpServer = SimpleSmtpServer.Start(SmtpServerPort);
         var testApplicaton = new BffComponentTestApplication();
         var client = testApplicaton.CreateClient();
-        await client.PostAsJsonAsync("/accountCreationConfirmation", new AccountCreationConfirmationRequest{Email = "tony@gmail.com", Name = "Johnny B Good"});
+        await client.PostAsJsonAsync("/accountCreationConfirmation", new AccountCreationConfirmationRequest("tony@gmail.com", "Johnny B Good"));
 
         smtpServer.ReceivedEmailCount.Should().Be(1);
         var sentEmail = smtpServer.ReceivedEmail[0];

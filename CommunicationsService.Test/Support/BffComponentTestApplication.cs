@@ -27,7 +27,7 @@ public class BffComponentTestApplication : WebApplicationFactory<Program>
             services.TryAdd(ServiceDescriptor.Singleton<ISender>(_ => new SmtpSender(new SmtpClient
             {
                 Host = "127.0.0.1",
-                Port = SmtpServerPort,
+                Port = SmtpServerPort
             })));
         });
         

@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using CommunicationsService.AccountCreationConfirmation;
 using CommunicationsService.Test.Support;
 using FluentAssertions;
@@ -9,10 +8,10 @@ namespace CommunicationsService.Test.AccountCreationConfirmation;
 public class AccountCreationConfirmationEmailTemplateTest : TemplateTest
 {
     [Fact]
-    public async Task RendersSalutation()
+    public void RendersSalutation()
     {
-        var model = new AccountCreationConfirmationEmailViewModel{Name = "Dora"};
+        var model = new AccountCreationConfirmationEmailViewModel("Dora");
         var rendered =  RenderTemplate("AccountCreationConfirmation/AccountCreationConfirmationEmailTemplate.cshtml", model);
-        rendered.GetElementById("salutation").TextContent.Should().Contain("Dora");
+        rendered.GetElementById("salutation")!.TextContent.Should().Contain("Dora");
     }
 }

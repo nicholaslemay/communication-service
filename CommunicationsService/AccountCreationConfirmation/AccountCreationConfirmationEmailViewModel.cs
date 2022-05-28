@@ -1,6 +1,3 @@
 namespace CommunicationsService.AccountCreationConfirmation;
 
-public class AccountCreationConfirmationEmailViewModel
-{
-    public string Name { get; set; }
-}
+public record AccountCreationConfirmationEmailViewModel(string Name);

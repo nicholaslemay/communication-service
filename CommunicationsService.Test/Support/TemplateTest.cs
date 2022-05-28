@@ -7,19 +7,17 @@ namespace CommunicationsService.Test.Support;
 
 public abstract class TemplateTest
 {
-    private static readonly RazorLightEngine?   _templateEngine = new RazorLightEngineBuilder()
+    private static readonly RazorLightEngine TemplateEngine = new RazorLightEngineBuilder()
         .UseFileSystemProject("/Users/nick/RiderProjects/BDC/CommunicationsService/CommunicationsService/")
         .UseMemoryCachingProvider()
         .Build();
 
-    protected IHtmlDocument RenderTemplate(string viewPath, object model)
+    protected static IHtmlDocument RenderTemplate(string viewPath, object model)
     {
         var result = RenderViewAsync(viewPath, model).Result;
         return new HtmlParser().ParseDocument(result);
     }
 
-    private Task<string> RenderViewAsync(string viewPath, object model)
-    {
-        return  _templateEngine.CompileRenderAsync(viewPath, model);
-    }
+    private static Task<string> RenderViewAsync(string viewPath, object model) => 
+        TemplateEngine.CompileRenderAsync(viewPath, model);
 }
